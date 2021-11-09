@@ -16,7 +16,7 @@ function Header({
   isSearchBarVisible: Boolean;
 }) {
   return (
-    <header className="flex space-x-20 items-center py-5">
+    <header className="flex space-x-20 items-center py-5 h-20">
       <h2 className="font-semibold text-3xl whitespace-nowrap">
         My Book Finder
       </h2>
