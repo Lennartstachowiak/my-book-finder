@@ -8,11 +8,13 @@ function handleSubmit() {
   console.log("Submit");
 }
 
-const InputField = ({ label }: { label: string }) => {
+const InputField = ({ type, label }: { type: string; label: string }) => {
   return (
-    <div>
-      <label htmlFor="">{label}</label>
-      <input type="text" />
+    <div className="py-4">
+      <label htmlFor={label} className="block text-lg pb-2">
+        {label}
+      </label>
+      <input type={type} className="flex border rounded-xl px-5 py-2" />
     </div>
   );
 };
@@ -21,10 +23,12 @@ const CreateBookForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <InputField label="Title of the book" />
-        <InputField label="Author" />
-        <InputField label="Published date" />
-        <Button type="submit" text="Add book" icon={faFolderPlus} />
+        <InputField type="text" label="Title of the book" />
+        <InputField type="text" label="Author" />
+        <InputField type="date" label="Published date" />
+        <div className="pt-5">
+          <Button type="submit" text="Add book" icon={faFolderPlus} />
+        </div>
       </form>
     </div>
   );
