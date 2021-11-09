@@ -46,6 +46,7 @@ function HomeScreen() {
   return (
     <div>
       <Header
+        buttonType="button"
         buttonText="Add new Book"
         buttonIcon={faFolderPlus}
         buttonAction="/create-book"
