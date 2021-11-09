@@ -1,35 +1,5 @@
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Header from "./components/Header";
 import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
-
-const SearchBar = () => {
-  return (
-    <input
-      type="text"
-      placeholder="Search for you books..."
-      className="flex border rounded-xl px-5 py-2 w-full"
-    />
-  );
-};
-
-const AddBookBtn = () => {
-  return (
-    <Link to={"/create-book"}>
-      <button
-        type="button"
-        className="bg-indigo-700 px-5 py-2 rounded-xl flex flex-nowrap items-center"
-      >
-        <FontAwesomeIcon
-          className="mr-4"
-          icon={faFolderPlus}
-          color="white"
-          size="sm"
-        />
-        <p className="text-white text-base whitespace-nowrap">Add new book</p>
-      </button>
-    </Link>
-  );
-};
 
 const DashboardHeader = () => {
   return (
@@ -72,22 +42,15 @@ const Dashboard = () => {
   );
 };
 
-const Header = () => {
-  return (
-    <header className="flex space-x-20 items-center py-5">
-      <h2 className="font-semibold text-3xl whitespace-nowrap">
-        My Book Finder
-      </h2>
-      <AddBookBtn />
-      <SearchBar />
-    </header>
-  );
-};
-
 function HomeScreen() {
   return (
     <div>
-      <Header />
+      <Header
+        buttonText="Add new Book"
+        buttonIcon={faFolderPlus}
+        buttonAction="/create-book"
+        isSearchBarVisible={true}
+      />
       <Dashboard />
     </div>
   );
