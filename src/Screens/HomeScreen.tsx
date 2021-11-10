@@ -29,15 +29,48 @@ const DashboardItem = ({
   );
 };
 
-const Dashboard = () => {
-  var title = "Example book";
-  var author = "author";
-  var date = "date";
+const DashboardItems = ({
+  data,
+}: {
+  data:  { title: string; author: string; date: string; }[];
+}) => {
+  let books = data;
+  return (
+    <>
+      {books.map((book) => (
+        <DashboardItem
+          title={book.title}
+          author={book.author}
+          date={book.date}
+        />
+      ))}
+    </>
+  );
+};
 
+const Dashboard = () => {
+  let bookLibary = [
+      {
+        title: "Abs",
+        author: "Paul",
+        date: "01.01.2013",
+      },
+      {
+        title: "Abs",
+        author: "Peter",
+        date: "01.01.2013",
+      },
+    ];
+
+  let JSONBooks = localStorage.getItem("books");
+
+  if (JSONBooks != null) {
+    bookLibary = JSON.parse(JSONBooks)
+  }
   return (
     <div>
       <DashboardHeader />
-      <DashboardItem title={title} author={author} date={date} />
+      <DashboardItems data={bookLibary} />
     </div>
   );
 };
