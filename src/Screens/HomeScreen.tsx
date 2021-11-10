@@ -85,11 +85,19 @@ const DashboardItems = ({
         ))}
       </>
     );
-  } else {
+  } else if (bookLibary.length > 0) {
     return (
       <p className="w-full text-center pt-10 font-medium">
         No matching books...
       </p>
+    );
+  } else {
+    return (
+      <div>
+        <p className="w-full text-center pt-10 font-medium">
+          Currently you don’t have any books here.
+        </p>
+      </div>
     );
   }
 };
@@ -100,8 +108,8 @@ const Dashboard = ({ filter }: { filter: string }) => {
   );
 
   useEffect(() => {
-    localStorage.setItem("books", JSON.stringify(bookLibary))
-  }, [bookLibary] )
+    localStorage.setItem("books", JSON.stringify(bookLibary));
+  }, [bookLibary]);
 
   return (
     <div>

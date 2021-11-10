@@ -18,8 +18,8 @@ function Header({
   setSearchBarFilter?: React.Dispatch<React.SetStateAction<string>>;
 }) {
   return (
-    <header className="flex space-x-20 items-center py-5 h-20">
-      <h2 className="font-semibold text-3xl whitespace-nowrap">
+    <header className="flex flex-wrap lg:flex-nowrap lg:space-x-20 items-center py-5">
+      <h2 className="font-semibold mr-20 mb-5 lg:m-0 text-3xl whitespace-nowrap">
         My Book Finder
       </h2>
       <LinkButton
