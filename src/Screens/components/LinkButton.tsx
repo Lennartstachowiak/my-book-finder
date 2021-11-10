@@ -14,7 +14,7 @@ const LinkButton = ({
   action: string;
 }) => {
   return (
-    <Link to={action} className="mb-5" >
+    <Link to={action} className="mb-5 lg:m-0" >
       <Button type={type} text={text} icon={icon} />
     </Link>
   );

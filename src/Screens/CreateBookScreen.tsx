@@ -29,6 +29,7 @@ const InputField = ({
         value={value}
         onChange={onChange}
         className="flex border rounded-xl px-5 py-2"
+        minLength={3}
         required
       />
     </div>
@@ -36,7 +37,6 @@ const InputField = ({
 };
 
 const CreateBookForm = () => {
-
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [date, setDate] = useState("");
@@ -47,22 +47,50 @@ const CreateBookForm = () => {
       title: title,
       author: author,
       date: date,
-      id: id
+      id: id,
     };
-    let JSONBooks = localStorage.getItem("books")
-    let books = []
+    let JSONBooks = localStorage.getItem("books");
+    let books = [];
+    let isBookExisting = false;
     if (JSONBooks) {
       books = JSON.parse(JSONBooks);
+      books.find((book: { id: string }) => {
+        if (book.id === id) {
+          isBookExisting = true;
+        }
+      });
     }
-    books.push(book);
-    localStorage.setItem("books", JSON.stringify(books))
-  }
+    if (!isBookExisting) {
+      books.push(book);
+      localStorage.setItem("books", JSON.stringify(books));
+    } else {
+      alert("Book already exists");
+    }
+  };
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <InputField type="text" name="title" label="Title of the book" value={title} onChange={(event)=>setTitle(event.target.value)} />
-        <InputField type="text" name="author" label="Author" value={author} onChange={(event)=>setAuthor(event.target.value)} />
-        <InputField type="date" name="date" label="Published date" value={date} onChange={(event)=>setDate(event.target.value)} />
+        <InputField
+          type="text"
+          name="title"
+          label="Title of the book"
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+        />
+        <InputField
+          type="text"
+          name="author"
+          label="Author"
+          value={author}
+          onChange={(event) => setAuthor(event.target.value)}
+        />
+        <InputField
+          type="date"
+          name="date"
+          label="Published date"
+          value={date}
+          onChange={(event) => setDate(event.target.value)}
+        />
         <div className="pt-5">
           <Button type="submit" text="Add book" icon={faFolderPlus} />
         </div>
