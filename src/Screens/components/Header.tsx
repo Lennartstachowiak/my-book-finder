@@ -20,7 +20,7 @@ function Header({
   return (
     <header className="flex flex-wrap lg:flex-nowrap lg:space-x-20 items-center py-5">
       <h2 className="font-semibold mr-20 mb-5 lg:m-0 text-3xl whitespace-nowrap">
-        My Book Finder
+        MyBookFinder
       </h2>
       <LinkButton
         type={buttonType}

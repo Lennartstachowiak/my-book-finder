@@ -35,7 +35,7 @@ const DashboardItem = ({
       date: string;
       id: string;
     }[] = [];
-    bookLibary.map((book) => {
+    bookLibary.forEach((book) => {
       if (book.id !== id) {
         remainingBooks.push(book);
       }
@@ -58,7 +58,7 @@ const DashboardItem = ({
 };
 
 const DashboardItems = ({
-  bookLibary: bookLibary,
+  bookLibary,
   setBookLibary,
   filter,
 }: {
@@ -66,9 +66,10 @@ const DashboardItems = ({
   setBookLibary: React.Dispatch<any>;
   filter: string;
 }) => {
-  let books = bookLibary;
-  let filteredBooks = books.filter(
-    (book) => book.title.includes(filter) || book.author.includes(filter)
+  let filteredBooks = bookLibary.filter(
+    (book) =>
+      book.title.toLowerCase().includes(filter.toLowerCase()) ||
+      book.author.toLowerCase().includes(filter.toLowerCase())
   );
   if (filteredBooks.length > 0) {
     return (
@@ -79,6 +80,7 @@ const DashboardItems = ({
             author={book.author}
             date={book.date}
             id={book.id}
+            key={book.id}
             bookLibary={bookLibary}
             setBookLibary={setBookLibary}
           />

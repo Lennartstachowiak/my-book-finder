@@ -54,7 +54,7 @@ const CreateBookForm = () => {
     let isBookExisting = false;
     if (JSONBooks) {
       books = JSON.parse(JSONBooks);
-      books.find((book: { id: string }) => {
+      books.forEach((book: { id: string }) => {
         if (book.id === id) {
           isBookExisting = true;
         }
