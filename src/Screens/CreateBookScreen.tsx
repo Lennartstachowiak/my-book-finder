@@ -49,7 +49,6 @@ const CreateBookForm = () => {
       date: date,
       id: id
     };
-    console.log({title});
     let JSONBooks = localStorage.getItem("books")
     let books = []
     if (JSONBooks) {

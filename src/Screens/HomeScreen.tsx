@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import { faFolderPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const DashboardHeader = () => {
@@ -98,6 +98,10 @@ const Dashboard = ({ filter }: { filter: string }) => {
   const [bookLibary, setBookLibary] = useState(
     JSON.parse(localStorage.getItem("books") || "{}")
   );
+
+  useEffect(() => {
+    localStorage.setItem("books", JSON.stringify(bookLibary))
+  }, [bookLibary] )
 
   return (
     <div>
