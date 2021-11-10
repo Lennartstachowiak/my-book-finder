@@ -42,10 +42,12 @@ const CreateBookForm = () => {
   const [date, setDate] = useState("");
 
   const handleSubmit = () => {
+    let id = title + author;
     let book = {
       title: title,
       author: author,
       date: date,
+      id: id
     };
     console.log({title});
     let JSONBooks = localStorage.getItem("books")

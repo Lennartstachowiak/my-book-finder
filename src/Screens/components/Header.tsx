@@ -8,12 +8,14 @@ function Header({
   buttonIcon,
   buttonAction,
   isSearchBarVisible,
+  setSearchBarFilter,
 }: {
   buttonType: "button" | "submit" | "reset" | undefined;
   buttonText: string;
   buttonIcon: IconDefinition;
   buttonAction: string;
   isSearchBarVisible: Boolean;
+  setSearchBarFilter?: React.Dispatch<React.SetStateAction<string>>;
 }) {
   return (
     <header className="flex space-x-20 items-center py-5 h-20">
@@ -26,7 +28,7 @@ function Header({
         icon={buttonIcon}
         action={buttonAction}
       />
-      <SearchBar visible={isSearchBarVisible} />
+      <SearchBar visible={isSearchBarVisible} setFilter={setSearchBarFilter} />
     </header>
   );
 }
