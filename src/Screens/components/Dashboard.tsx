@@ -13,7 +13,7 @@ const DashboardHeader = () => {
 
 const Dashboard = ({ filter }: { filter: string }) => {
   const [bookLibary, setBookLibary] = useState(
-    JSON.parse(localStorage.getItem("books") || "{}")
+    JSON.parse(localStorage.getItem("books") || "[]")
   );
 
   useEffect(() => {

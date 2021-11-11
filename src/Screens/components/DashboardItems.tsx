@@ -36,15 +36,15 @@ const DashboardItems = ({
         No matching books...
       </p>
     );
-  } else {
-    return (
-      <div>
-        <p className="w-full text-center pt-10 font-medium">
-          Currently you don’t have any books here.
-        </p>
-      </div>
-    );
   }
+
+  return (
+    <div>
+      <p className="w-full text-center pt-10 font-medium">
+        Currently you don’t have any books here.
+      </p>
+    </div>
+  );
 };
 
 export default DashboardItems;
