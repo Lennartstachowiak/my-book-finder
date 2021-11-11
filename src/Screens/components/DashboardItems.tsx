@@ -9,7 +9,11 @@ const DashboardItems = ({
   setBookLibary: React.Dispatch<any>;
   filter: string;
 }) => {
-  let filteredBooks = bookLibary
+  let filteredBooks = bookLibary.filter(
+    (book) =>
+      book.title.toLowerCase().includes(filter.toLowerCase()) ||
+      book.author.toLowerCase().includes(filter.toLowerCase())
+  );
   if (filteredBooks.length > 0) {
     return (
       <>
