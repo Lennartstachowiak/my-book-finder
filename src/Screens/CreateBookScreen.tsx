@@ -3,38 +3,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 import Button from "./components/Button";
 import { useState } from "react";
-
-const InputField = ({
-  type,
-  name,
-  label,
-  value,
-  onChange,
-}: {
-  type: string;
-  name: string;
-  label: string;
-  value: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-}) => {
-  return (
-    <div className="py-4">
-      <label htmlFor={name} className="block text-lg pb-2">
-        {label}
-      </label>
-      <input
-        type={type}
-        id={name}
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="flex border rounded-xl px-5 py-2"
-        minLength={3}
-        required
-      />
-    </div>
-  );
-};
+import InputField from "./components/InputField";
 
 const CreateBookForm = () => {
   const [title, setTitle] = useState("");
